@@ -34,6 +34,7 @@ app.use(express.urlencoded({extended:false}))
 // Variables globales
 // Rutas 
 app.use(require('./routers/index.routes'))
+app.use(require('./routers/portafolio.routes'))
 
 // Rutas 
 app.get('/',(req,res)=>{
