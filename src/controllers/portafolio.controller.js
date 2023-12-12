@@ -1,3 +1,6 @@
+//importar el modelo
+const Portfolio = require('../models/Portfolio')
+
 //metodo para listar los portafolios
 const renderAllPortafolios = (req,res)=>{
     res.send('Listar todos los portafolios')
@@ -8,15 +11,21 @@ const renderPortafolio = (req,res)=>{
     res.send('Mostrar el detalle de un portafolio')
 }
 
-//metodo para mostrar el formulario
 const renderPortafolioForm = (req,res)=>{
-    res.send('Formulario para crear un portafolio')
+    res.render('portafolio/newFormPortafolio')
 }
 
 //metodo para guardar una base de datos lo capturado en el form
-const createNewPortafolio = (req,res)=>{
-    res.send('Crear un nuevo portafolio')
+const createNewPortafolio =async (req,res)=>{
+    const {title, category,description} = req.body//desestructurar los datos req.body
+    //crear una nueva instancia
+    const newPortfolio = new Portfolio({title,category,description})
+    //guardar en la base de datos
+    await newPortfolio.save() //devuelve un a promesa
+    // mostrar el resultado
+    res.json({newPortfolio})
 }
+
 
 //metodo para actualizar el formulario
 const renderEditPortafolioForm = (req,res)=>{

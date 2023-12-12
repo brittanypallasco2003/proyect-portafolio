@@ -5,6 +5,10 @@ const { engine }  = require('express-handlebars')
 const express = require('express')
 
 const path = require('path');
+//importar el metohod override
+const methodOverride = require('method-override');
+
+
 
 // Inicializaciones
 //instanciar express
@@ -26,10 +30,11 @@ app.engine('.hbs',engine({
     extname:'.hbs'
 }))
 app.set('view engine','.hbs')
+
 // Middlewares 
 //servidor va a trabjar con información en base a formularios
 app.use(express.urlencoded({extended:false}))
-
+app.use(methodOverride('_method'))
 
 // Variables globales
 // Rutas 
