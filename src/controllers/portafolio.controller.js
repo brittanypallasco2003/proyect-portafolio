@@ -2,8 +2,11 @@
 const Portfolio = require('../models/Portfolio')
 
 //metodo para listar los portafolios
-const renderAllPortafolios = (req,res)=>{
-    res.send('Listar todos los portafolios')
+const renderAllPortafolios = async(req,res)=>{
+    //listar todos los portafolios y transformar en objetos con el método .lean()
+    const portafolios = await Portfolio.find().lean()
+    // mandar a la vista los portafolios
+    res.render("portafolio/allPortfolios",{portafolios})
 }
 
 //metodo para listar el detalle de un portafolio
