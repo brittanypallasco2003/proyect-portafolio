@@ -8,11 +8,16 @@ const path = require('path');
 //importar el metohod override
 const methodOverride = require('method-override');
 
-
+//importar passport
+const passport = require('passport');
+//importar express-session para manter la sesión del usuario
+const session = require('express-session');
 
 // Inicializaciones
 //instanciar express
 const app = express()
+require('./config/passport')
+
 
 // Configuraciones 
 //variables de configuraciones
@@ -35,11 +40,26 @@ app.set('view engine','.hbs')
 //servidor va a trabjar con información en base a formularios
 app.use(express.urlencoded({extended:false}))
 app.use(methodOverride('_method'))
+//configurar la sesión del usuario
+app.use(session({ 
+    secret: 'secret',
+    resave:true,
+    saveUninitialized:true
+}));
+//inicializar passportjs y session
+app.use(passport.initialize())
+app.use(passport.session())
 
 // Variables globales
 // Rutas 
 app.use(require('./routers/index.routes'))
 app.use(require('./routers/portafolio.routes'))
+app.use(require('./routers/user.routes'))
+
+app.use((req,res,next)=>{
+    res.locals.user = req.user?.name || null
+    next()
+})
 
 // Rutas 
 app.get('/',(req,res)=>{
