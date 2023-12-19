@@ -12,6 +12,8 @@ const methodOverride = require('method-override');
 const passport = require('passport');
 //importar express-session para manter la sesión del usuario
 const session = require('express-session');
+//impotar fileupload
+const fileUpload = require('express-fileupload')
 
 // Inicializaciones
 //instanciar express
@@ -25,6 +27,10 @@ let port=3000
 app.set('port',process.env.port || 3000)
 let views="C:\Users\APLICACIONES WEB\Desktop\portafolio\src\views"
 app.set('views',path.join(__dirname, 'views'))
+app.use(fileUpload({
+    useTempFiles : true,
+    tempFileDir : './uploads'
+}));
 
 // Configuraciones 
 app.set('views',path.join(__dirname, 'views'))
@@ -52,14 +58,14 @@ app.use(passport.session())
 
 // Variables globales
 // Rutas 
-app.use(require('./routers/index.routes'))
-app.use(require('./routers/portafolio.routes'))
-app.use(require('./routers/user.routes'))
-
 app.use((req,res,next)=>{
     res.locals.user = req.user?.name || null
     next()
 })
+app.use(require('./routers/index.routes'))
+app.use(require('./routers/portafolio.routes'))
+app.use(require('./routers/user.routes'))
+
 
 // Rutas 
 app.get('/',(req,res)=>{
