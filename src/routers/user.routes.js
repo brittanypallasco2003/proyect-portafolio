@@ -1,25 +1,25 @@
-
+//IMPORTAR LIBRERÍAS
 //importar router de express
 const {Router} = require('express')
-
+// importación de los controladores
 const { renderRegisterForm, registerNewUser, renderLoginForm, loginUser, logoutUser } = require('../controllers/user.controller')
 const { redirectIfAuthenticated } = require('../helpers/validate-auth')
 
-//instanciar router
+//INSTANCIAR ROUTER
 const router = Router()
 
-//ruta para mostrar el formulario de registro
+//RUTA PARA MOSTRAR EL FORMULARIO DE REGISTRO
 router.get('/user/register',renderRegisterForm)
-//ruta para capturar los datos del formulario y almacenar en la bdd
+//RUTA PARA CAPTURAR LA INFORMACIÓN DEL FORMULARIO Y ALMACENARLA EN LA BASE DE DATOS
 router.post('/user/register',registerNewUser)
 
-//ruta para mostrar el formulario del login
+//RUTA PARA MOSTRAR EL FORMULARIO DE LOGIN
 router.get('/user/login', redirectIfAuthenticated,renderLoginForm)
-//ruta  para capturar los datos del formulario y ralizar el proceso de login en conjunto con BDD
+//RUTA PARA CAPTURAR LOS DATOS DEL FORM DE LOGIN Y REALIZAR EL PROCESO DE LOGIN
 router.post('/user/login',loginUser)
 
-//Ruta para cerrar sesíón de usuario
+//RUTA PARA REALIZAR EL CIERRE DE SESIÓN
 router.post('/user/logout',logoutUser)
 
-//exportar la variable router
+//EXPORTAR LA VARIABLE ROUTER
 module.exports =router

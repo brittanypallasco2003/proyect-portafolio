@@ -1,13 +1,12 @@
+//IMPORTAR LIBRERÍAS
+//importar express
+const express = require('express')
 //importar handlebars
 const { engine }  = require('express-handlebars')
-
-//importacion de express
-const express = require('express')
-
+//importar path
 const path = require('path');
 //importar el metohod override
 const methodOverride = require('method-override');
-
 //importar passport
 const passport = require('passport');
 //importar express-session para manter la sesión del usuario
@@ -15,68 +14,76 @@ const session = require('express-session');
 //impotar fileupload
 const fileUpload = require('express-fileupload')
 
-// Inicializaciones
+// INICIALIZACIONES
 //instanciar express
 const app = express()
+//invocar el archivo de config passport
 require('./config/passport')
 
 
-// Configuraciones 
+//CONFIGURACIONES
 //variables de configuraciones
-let port=3000
 app.set('port',process.env.port || 3000)
-let views="C:\Users\APLICACIONES WEB\Desktop\portafolio\src\views"
-app.set('views',path.join(__dirname, 'views'))
+//configuraciones de fileupload
 app.use(fileUpload({
+    //establecer archivos temporales
     useTempFiles : true,
+    //especificar el directorio donde se guardaran los archivos temporales
     tempFileDir : './uploads'
 }));
 
-// Configuraciones 
+// Handlebars
+//establecer el directorio de las vistas
 app.set('views',path.join(__dirname, 'views'))
+//configuraciones para el motor de plantillas
 app.engine('.hbs',engine({
+    //1. establecer el archivo master (Archivo de la master page)
     defaultLayout:'main',
+    //2. establecer el directorio layouts
     layoutsDir: path.join(app.get('views'),'layouts'),
+    //3. establecer el directorio partials
     partialsDir: path.join(app.get('views'),'partials'),
+    //4. extensión de las páginas con .hbs
     extname:'.hbs'
 }))
+
+//establecer el motor de plantillas y su extensión 
 app.set('view engine','.hbs')
 
-// Middlewares 
-//servidor va a trabjar con información en base a formularios
-app.use(express.urlencoded({extended:false}))
+// MIDDLEWARS 
+app.use(express.json()) //Servidor recibirá JSON
+app.use(express.urlencoded({extended:false})) //Servidor recibirá info por formularios y Vistas
 app.use(methodOverride('_method'))
-//configurar la sesión del usuario
+
+//Establecer la sesión del usuario
 app.use(session({ 
     secret: 'secret',
     resave:true,
     saveUninitialized:true
 }));
-//inicializar passportjs y session
+
+//inicialización
 app.use(passport.initialize())
+//mantener la sesión de usuario
 app.use(passport.session())
 
-// Variables globales
-// Rutas 
+
+//VARIABLES GLOBALES
 app.use((req,res,next)=>{
     res.locals.user = req.user?.name || null
     next()
 })
-app.use(require('./routers/index.routes'))
-app.use(require('./routers/portafolio.routes'))
-app.use(require('./routers/user.routes'))
+
+//RUTAS
+app.use(require('./routers/index.routes'))//importar archivo index.routes con todas sus rutas
+app.use(require('./routers/portafolio.routes'))//importar archivo portfolio.routes con todas sus rutas
+app.use(require('./routers/user.routes'))//importar archivo user.routes con todas sus rutas
 
 
-// Rutas 
-app.get('/',(req,res)=>{
-    res.render('index')
-})
-
-// Archivos estáticos
-// definir archivos estáticos y publicos
-// Archivos estáticos
+// ARCHIVOS ESTÁTICOS
+// definir los archivos públicos para que las vistas fácilmente accedan
 app.use(express.static(path.join(__dirname,'public')))
 
-//exportar la variable app
+//EXPORTAR LA VARIABLE APP
 module.exports = app
 

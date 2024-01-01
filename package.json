@@ -1,10 +1,9 @@
 {
   "name": "proyect-portafolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/6a9f02a4-f19e-4edd-8f40-99fd8739c6d7)\r ### Ruta Login\r ![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/cf25da48-0e8b-4107-8c7b-22b9f12887a3)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },
@@ -19,7 +18,7 @@
     "express-fileupload": "^1.4.3",
     "express-handlebars": "^7.1.2",
     "express-session": "^1.17.3",
-    "handlebars": "^4.7.8",
+    "fs-extra": "^11.2.0",
     "method-override": "^3.0.0",
     "mongoose": "^8.0.3",
     "passport": "^0.7.0",
@@ -28,6 +27,6 @@
   "devDependencies": {
     "dotenv": "^16.3.1",
     "nodemon": "^3.0.2",
-    "npm-check-updates": "^16.14.11"
+    "npm-check-updates": "^16.14.12"
   }
 }

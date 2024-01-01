@@ -1,18 +1,19 @@
+//IMPORTAR LIBRERÍAS
 //importar routes de express
 const {Router} = require('express')
+
 //instanciar router
 const router = Router()
 
-const {renderIndex,renderLogin} = require('../controllers/index.controllers.js')
+//Importación de los métodos del controlador
+const { renderIndex, renderLogin } = require('../controllers/index.controllers')
 
-
+//RUTAS
+//Ruta Home
 router.get('/',renderIndex)
+//Ruta Login
 router.get('/login',renderLogin)
 
 
-
-router.get('/',(req,res)=>{
-    res.render('index')
-})
-
+//EXPORTAR LA INSTANCIA ROUTER
 module.exports = router

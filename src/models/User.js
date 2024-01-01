@@ -1,9 +1,10 @@
+//IMPORTACIÓN DE LIBRERÍAS
+//importar el Shema y el Model
 const {Schema, model} = require('mongoose')
-
-//importar bycript
+//importar el bycript
 const bcrypt = require('bcryptjs')
 
-//crar un schema userShema
+//CREAR SCHEMA USER
 const userSchema = new Schema({
     name:{
         type:String,
@@ -21,7 +22,7 @@ const userSchema = new Schema({
     timestamps:true
 })
 
-// Método para cifrar el password del usuario
+//MÉTODO PARA CIFRAR EL PASSWORD DEL USUARIO
 userSchema.methods.encrypPassword = async (password)=>{
     //estblecer los saltos para encriptar el password
     const salt = await bcrypt.genSalt(10)
@@ -31,11 +32,11 @@ userSchema.methods.encrypPassword = async (password)=>{
     return passwordEncryp
 }
 
-// Método para verificar si el password ingresado es el mismo de la BDD
+//MÉTODO PARA VERIFICAR SI EL PASSWORD INGRESADO ES EL MISMO DE LA BDD
 userSchema.methods.matchPassword = async function(password){
     const response = await bcrypt.compare(password,this.password)
     return response
 }
 
-//exportar el modelo
+//EXPORTAR EL MODELO Y EL ESQUEMA
 module.exports = model('user',userSchema)

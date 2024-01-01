@@ -1,8 +1,9 @@
-//importar el schema y el modelo
+//IMPORTACIÓN DE LIBRERÍAS
+//importar el Schema y el Model
 const {Schema, model} = require('mongoose')
 
 
-//crear un nuevo esquema  -- portafolio
+//CREAR EL ESQUEMA DE LA TABLA PORTFOLIO
 const portfolioSchema = new Schema({
     title:{
         type:String,
@@ -28,5 +29,5 @@ const portfolioSchema = new Schema({
     timestamps:true
 })
 
-//exportar el modelo
+//EXPORTACIÓN DEL MODELO Y EL ESQUEMA
 module.exports = model('portfolio',portfolioSchema)
