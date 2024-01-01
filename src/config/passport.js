@@ -22,6 +22,8 @@ passport.use(new LocalStrategy({
     const passwordUser = await userBDD.matchPassword(password)
     //verificar si coninciden
     if(!passwordUser) return done("Lo sentimos, los passwords no coinciden",false)
+    //validar si el usuario puede iniciar sesión si y solo si ha confirmado su cuenta de correo electrónico
+    if(userBDD.confirmEmail===false) return done("Lo sentimos, debe verificar la cuenta en su correo electrónico",false)
     //retornar el usuario de la bdd
     return done(null,userBDD)
 }))

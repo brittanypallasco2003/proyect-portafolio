@@ -2,7 +2,7 @@
 //importar router de express
 const {Router} = require('express')
 // importación de los controladores
-const { renderRegisterForm, registerNewUser, renderLoginForm, loginUser, logoutUser } = require('../controllers/user.controller')
+const { renderRegisterForm, registerNewUser, renderLoginForm, loginUser, logoutUser, confirmEmail } = require('../controllers/user.controller')
 const { redirectIfAuthenticated } = require('../helpers/validate-auth')
 
 //INSTANCIAR ROUTER
@@ -20,6 +20,9 @@ router.post('/user/login',loginUser)
 
 //RUTA PARA REALIZAR EL CIERRE DE SESIÓN
 router.post('/user/logout',logoutUser)
+
+//RUTA PARA CONFIRMAR LA CUENTA DEL USUARIO
+router.get('/user/confirmar/:token',confirmEmail)
 
 //EXPORTAR LA VARIABLE ROUTER
 module.exports =router

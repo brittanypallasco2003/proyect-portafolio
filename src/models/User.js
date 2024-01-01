@@ -17,6 +17,14 @@ const userSchema = new Schema({
     password :{
         type:String,
         require:true
+    },
+    token:{
+        type:String,
+        default:null
+    },
+    confirmEmail:{
+        type:Boolean,
+        default:false
     }
 },{
     timestamps:true
@@ -36,6 +44,11 @@ userSchema.methods.encrypPassword = async (password)=>{
 userSchema.methods.matchPassword = async function(password){
     const response = await bcrypt.compare(password,this.password)
     return response
+}
+
+//MÉTODO PARA CREAR UN TOKEN
+userSchema.methods.crearToken = function(){
+    return token = this.token = Math.random().toString(36).slice(2)
 }
 
 //EXPORTAR EL MODELO Y EL ESQUEMA
