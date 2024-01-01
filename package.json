@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/6a9f02a4-f19e-4edd-8f40-99fd8739c6d7)\r ### Ruta Login\r ![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/cf25da48-0e8b-4107-8c7b-22b9f12887a3)",
   "main": "index.js",
+  "engines": {
+    "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
+  },
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
