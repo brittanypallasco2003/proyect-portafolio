@@ -1,6 +1,6 @@
 # Portafolio Web 💼
 
-## [Instalación](/README.md/#instalación)
+## Instalación
 
 Para acceder al proyecto, se debe realizar la clonación del repositorio:
 
@@ -49,7 +49,7 @@ Para ejecutar este proyecto, deberá agregar las siguientes variables de entorno
 > Estas variables de entorno son para utilizar un servidor SMTP de Gmail
 
 ## Conexión a la Base de Datos con MongoDB Atlas
-
+![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/79508624-2f45-40af-923f-767e51327c10)
 
 ## Vistas del Proyecto
 
@@ -59,17 +59,30 @@ Para ejecutar este proyecto, deberá agregar las siguientes variables de entorno
 ![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/cf25da48-0e8b-4107-8c7b-22b9f12887a3)
 
 
-### Ruta Nuevo Portafolio "portafolios"
+### Ruta "portafolios"
+![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/1b3f4a48-966d-494e-9e47-da6f70898eb4)
+![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/043bd122-3ed4-49c0-bad1-92f3d558add8)
+![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/9fffdbc8-4a35-44c9-ae23-9e71a7b37658)
 
 ### Ruta Nuevo Portafolio "portafolio/add"
+![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/8ca24478-893f-443f-ab4f-877394cca395)
 
 ## Funcionalidades añadidas
 ### Registro de Usuarios
+![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/b50e44be-5beb-4e5c-8fde-473447f24471)
 
 ### Envío de Correo de Confirmación
+![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/7590e212-912a-42c4-82bc-d5640ec886af)
+![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/a66ef7a4-5a51-4810-b78d-722688d09429)
+![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/d275fbf5-6c96-4bd0-a776-4940231aaa15)
+
 
 ### Acceso al login
+![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/f6cdfb2a-a85e-4fa7-aa72-b7195d05c54c)
 
 ### Formulario de Contacto 
+![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/439fd401-eef8-4f2e-a99b-cb473e59b567)
+![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/27bb04cd-1e1c-4897-8bdb-a4b0c6d5c273)
+![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/af5edf91-c639-4949-ab18-633627f893a1)
 
 
