@@ -72,7 +72,6 @@ Para ejecutar este proyecto, deberá agregar las siguientes variables de entorno
 ![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/b50e44be-5beb-4e5c-8fde-473447f24471)
 
 ### Envío de Correo de Confirmación
-![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/7590e212-912a-42c4-82bc-d5640ec886af)
 ![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/a66ef7a4-5a51-4810-b78d-722688d09429)
 ![image](https://github.com/brittanypallasco2003/proyect-portafolio/assets/117743650/d275fbf5-6c96-4bd0-a776-4940231aaa15)
 
